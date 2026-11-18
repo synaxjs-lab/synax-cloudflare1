@@ -26,7 +26,7 @@
     {
       "binding": "SYNAX_DB",
       "database_name": "synax-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "db27f50b-f11f-4b81-899c-c1c191d32bd3",
       "migrations_dir": "migrations"
     }
   ],
