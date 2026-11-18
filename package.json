@@ -1,0 +1,39 @@
+{
+  "name": "synax-cloudflare",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test:d1": "node --experimental-strip-types --experimental-sqlite --test tests/d1-rest.test.mjs",
+    "d1:migrate:local": "wrangler d1 migrations apply SYNAX_DB --local",
+    "d1:migrate:remote": "wrangler d1 migrations apply SYNAX_DB --remote",
+    "r2:create": "wrangler r2 bucket create synax-private-media",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260926.1",
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3",
+    "wrangler": "^4.141.0"
+  }
+}

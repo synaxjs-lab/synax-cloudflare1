@@ -1,0 +1,55 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "synax-cloudflare-rebuild",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-09-26",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_compat_populate_process_env"
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": ["30 18 * * *"]
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/api/*",
+      "/ws"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "SYNAX_DB",
+      "database_name": "synax-db",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "SYNAX_MEDIA",
+      "bucket_name": "synax-private-media"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SYNAX_REALTIME_HUB",
+        "class_name": "SynaxRealtimeHub"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "SynaxRealtimeHub"
+      ]
+    }
+  ]
+}

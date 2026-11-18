@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars for local `wrangler dev` testing.
+# Use three different passwords, each at least 12 characters.
+SYNAX_PERSON_1_PASSWORD=replace-with-a-unique-12-character-or-longer-password
+SYNAX_PERSON_2_PASSWORD=replace-with-a-different-12-character-or-longer-password
+SYNAX_ADMIN_PASSWORD=replace-with-a-third-unique-12-character-or-longer-password
+SYNAX_MEDIA_SIGNING_SECRET=replace-with-a-random-secret-at-least-32-characters
